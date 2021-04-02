@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: visualizations-landing
+  name: visualizations-home
   labels:
-    app: visualziations-landing
+    app: visualziations-home
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: visualizations-landing
+      app: visualizations-home
   template:
     metadata:
       labels:
-        app: visualizations-landing
+        app: visualizations-home
     spec:
       containers:
-        - name: landing
-          image: registry.nocovid.group/landing:latest
+        - name: home
+          image: registry.nocovid.group/visualizations-home:latest
           env:
             - name: HOST
               value: nocovid.group
