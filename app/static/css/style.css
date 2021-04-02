@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;800&display=swap');
+
+body {
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    background-color: #ffffff;
+    color: #444444;
+    text-align: center;
+}
+
+.content {
+    margin: auto;
+    padding: 30px;
+    position: relative;
+    max-width: 750px;
+}
+
+h1 {
+    font-size: 3.5em;
+    font-weight: 800;
+}
+
+.accent {
+    color: #f1a638;
+}
+
+.title {
+    overflow: scroll;
+}
+
+.title::-webkit-scrollbar {
+    width: 0;
+}
+
+b {
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+    color: #444444;
+    border-bottom: 0.075em solid;
+}
+
+a:hover {
+    color: #f1a638;
+}
+
+footer {
+    opacity: 0.75;
+    font-size: .75em;
+}
+
+/* Regions list */
+.regions {
+    border-radius: 5px;
+    padding: 1px 35px;
+    text-align: left;
+    background: #f1f1f1;
+}
+
+ul {
+    position: relative;
+    list-style: none;
+    margin-left: 0;
+    padding-left: 2rem;
+}
+
+.collapsibleList li {
+    cursor: auto;
+}
+
+li.collapsibleListOpen, li.collapsibleListClosed {
+    cursor: pointer;
+}
+
+li.collapsibleListOpen:before {
+    content: "–";
+}
+
+li.collapsibleListClosed:before {
+    content: "+";
+}
+
+li.collapsibleListOpen:before, li.collapsibleListClosed:before {
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    font-size: 1.6rem;
+}

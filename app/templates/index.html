@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>{{ host }}</title>
+    <meta name="description" content="EndCoronavirus Green Zone rankings">
+    <meta name="author" content="Jason Li">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script type="text/javascript" src="../static/js/CollapsibleLists.js"></script>
+    <script type="text/javascript" src="../static/js/script.js"></script>
+</head>
+
+<body>
+<main>
+    <div class="content">
+        <header>
+            <h1 class="title accent">{{ host }}</h1>
+        </header>
+        <article>
+            <h2>Green-Zone Rankings</h2>
+            <h3>THE RACE IS ON. GET TO ZERO. STAY AT ZERO.</h3>
+            <p>
+                The purpose of these rankings is to show how close a region (of any size) is to zero COVID-19 cases
+                which arise from community transmission. The thresholds for the color-coding are based on the absolute
+                number of cases in that region, rather than per capita cases. That is to say, colors do not indicate
+                risk levels for individuals.
+            </p>
+        </article>
+        {% if region_hierarchy|length > 0 %}
+        <article class="regions">
+            <h2>Regions</h2>
+            {% macro renderHierarchy(hierarchy) -%}
+            <ul class="collapsibleList">
+                {% for region_path, subregions in hierarchy.items() %}
+                <li>
+                    <h3>
+                    {% if region_path in region_urls %}
+                        <a href="{{ region_urls[region_path] }}" target="_blank">{{ region_names[region_path] }}</a>
+                    {% else %}
+                        {{ region_names[region_path] }}
+                    {% endif %}
+                    </h3>
+                    {% if subregions|length > 0 %}
+                        {{- renderHierarchy(subregions) }}
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+            {% endmacro %}
+            {{ renderHierarchy(region_hierarchy) }}
+        </article>
+        {% endif %}
+        <footer>
+            <p>
+            &copy; 2021. {{ host }}
+            </p>
+        </footer>
+    </div>
+</main>
+</body>
+</html>

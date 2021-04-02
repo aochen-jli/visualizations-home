@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: visualizations-landing
+  labels:
+    app: visualziations-landing
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: visualizations-landing
+  template:
+    metadata:
+      labels:
+        app: visualizations-landing
+    spec:
+      containers:
+        - name: landing
+          image: registry.nocovid.group/landing:latest
+          env:
+            - name: HOST
+              value: nocovid.group
+            - name: REGIONS
+              valueFrom:
+                configMapKeyRef:
+                  name: visualizations-current-regions
+                  key: yaml
+          ports:
+            - containerPort: 80
