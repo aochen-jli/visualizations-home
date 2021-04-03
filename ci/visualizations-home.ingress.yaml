@@ -17,3 +17,10 @@ spec:
                 name: visualizations-home
                 port:
                   number: 80
+          - path: /static
+            pathType: Prefix
+            backend:
+              service:
+                name: visualizations-home
+                port:
+                  number: 80
