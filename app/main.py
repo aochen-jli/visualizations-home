@@ -25,12 +25,13 @@ def add_to_hierarchy(path, hierarchy):
 #
 # Set up variables for templating
 #
-host = os.getenv("HOST")
-regions = yaml.safe_load(os.getenv("REGIONS"))
 region_names = {}
 region_urls = {}
 region_hierarchy = {}
-if regions is not None:
+host = os.getenv("HOST")
+regions_raw = os.getenv("REGIONS")
+if regions_raw is not None:
+    regions = yaml.safe_load(regions_raw)
     for region in regions:
         curr_name = region["name"]
         curr_path = region["path"]
