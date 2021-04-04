@@ -20,7 +20,7 @@ function togglePopup() {
     let popup = $('#popup');
     if (popup.css("display") === "none") {
         $('body').css("overflow", "hidden");
-        popup.css("display", "block");
+        popup.css("display", "flex");
     } else {
         $('body').css("overflow", "auto");
         popup.css("display", "none");

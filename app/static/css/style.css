@@ -126,6 +126,7 @@ li.collapsibleListOpen:before, li.collapsibleListClosed:before {
 #popup .embed-wrapper {
     margin: auto;
     max-width: 750px;
+    max-height: 1250px;
     opacity: 0.965;
 }
 
