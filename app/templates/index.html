@@ -36,25 +36,28 @@
         {% if region_hierarchy|length > 0 %}
         <article class="regions">
             <h2>Regions</h2>
-            {% macro renderHierarchy(hierarchy) -%}
-            <ul class="collapsibleList">
-                {% for region_path, subregions in hierarchy.items() %}
-                <li>
-                    <h3>
-                    {% if region_path in region_urls %}
-                        <a href="{{ region_urls[region_path] }}" target="_blank">{{ region_names[region_path] }}</a>
-                    {% else %}
-                        {{ region_names[region_path] }}
-                    {% endif %}
-                    </h3>
-                    {% if subregions|length > 0 %}
-                        {{- renderHierarchy(subregions) }}
-                    {% endif %}
-                </li>
-                {% endfor %}
-            </ul>
-            {% endmacro %}
-            {{ renderHierarchy(region_hierarchy) }}
+            <hr>
+            <div class="list-wrapper">
+                {% macro renderHierarchy(hierarchy) -%}
+                <ul class="collapsibleList">
+                    {% for region_path, subregions in hierarchy.items() %}
+                    <li>
+                        <h3>
+                        {% if region_path in region_urls %}
+                            <a href="{{ region_urls[region_path] }}" target="_blank">{{ region_names[region_path] }}</a>
+                        {% else %}
+                            {{ region_names[region_path] }}
+                        {% endif %}
+                        </h3>
+                        {% if subregions|length > 0 %}
+                            {{- renderHierarchy(subregions) }}
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endmacro %}
+                {{ renderHierarchy(region_hierarchy) }}
+            </div>
         </article>
         {% endif %}
         <footer>

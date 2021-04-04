@@ -90,6 +90,19 @@ li.collapsibleListOpen:before, li.collapsibleListClosed:before {
     font-size: 1.6rem;
 }
 
+.regions h2 {
+    margin-bottom: 0.65em;
+}
+
+.regions hr {
+    margin: 0;
+}
+
+.list-wrapper {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
 /* Popup window */
 #popup, #popup .embed-wrapper, #popup iframe {
     width: 100%;
@@ -136,4 +149,5 @@ li.collapsibleListOpen:before, li.collapsibleListClosed:before {
     top: 50%;
     left: 50%;
     transform: translate(-50%);
+    pointer-events: none;
 }
