@@ -1,4 +1,6 @@
 import os
+
+import flask
 import yaml
 
 from flask import Flask, render_template
@@ -41,14 +43,19 @@ if regions_raw is not None:
             region_urls[curr_path] = f"https://{host}/{curr_path}"
 
 
-@app.route('/', defaults={'path': ''})
-@app.route('/<path:path>')
-def serve(path):
+@app.route('/')
+def serve():
     return render_template('index.html',
                            host=host,
                            region_names=region_names,
                            region_urls=region_urls,
                            region_hierarchy=region_hierarchy)
+
+
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def redirect(path):
+    return flask.redirect('/')
 
 
 if __name__ == "__main__":
