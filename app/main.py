@@ -41,8 +41,9 @@ if regions_raw is not None:
             region_urls[curr_path] = f"https://{host}/{curr_path}"
 
 
-@app.route('/')
-def serve():
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve(path):
     return render_template('index.html',
                            host=host,
                            region_names=region_names,

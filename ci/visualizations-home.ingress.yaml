@@ -11,13 +11,6 @@ spec:
       http:
         paths:
           - path: /
-            pathType: Exact
-            backend:
-              service:
-                name: visualizations-home
-                port:
-                  number: 80
-          - path: /static
             pathType: Prefix
             backend:
               service:
